@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Java 2026-10-03/Java 2026-10-03.iml" filepath="$PROJECT_DIR$/Java 2026-10-03/Java 2026-10-03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java 2026-10-04/Java 2026-10-04.iml" filepath="$PROJECT_DIR$/Java 2026-10-04/Java 2026-10-04.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java basic/Java basic.iml" filepath="$PROJECT_DIR$/Java basic/Java basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Testing18 automation.iml" filepath="$PROJECT_DIR$/.idea/Testing18 automation.iml" />
+    </modules>
+  </component>
+</project>
