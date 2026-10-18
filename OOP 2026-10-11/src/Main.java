@@ -54,5 +54,7 @@ public class Main {
 //        Note: 1.không được dùng class cha vì class cha CHỈ ĐỂ KẾ THỪA
         Car mec = new Car("1", "Maybach", "2025", "black", 4, "gasoline");
         mec.display();
+
+//       vehicle vehicle=new Vehicle(); -> vehicle không dùng được do dang dùng class cha
     }
 }
