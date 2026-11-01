@@ -12,7 +12,7 @@ import java.io.File;
 public class MyInfoPage extends BasePage{
     private static final By AvatarImg= By.xpath("//img[@class='employee-image']");
     private static final By UploadBtn=By.xpath("//button[contains(@class,'employee-image')]");
-    private static final By FileInput=By.xpath("//button[contains(@class,'employee-image')]");
+    private static final By FileInput=By.xpath("//input[@type='file']");
     private static final By SaveBtn=By.xpath("//button[@type='submit']");
     private static final By SuccessToast=By.id("oxd-toaster_1");
 
@@ -35,7 +35,7 @@ public class MyInfoPage extends BasePage{
         avatarImg.click();
 
         WebElement uploadBtn=wait.until(ExpectedConditions.elementToBeClickable(UploadBtn));
-        uploadBtn.click();
+//        uploadBtn.click();
 //        WebElement fileInput=wait.until(ExpectedConditions.visibilityOfElementLocated(FileInput));
         WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(FileInput));
 //        Note: vì fileInput Selenium không thể thao tác trực tiếp để tìm file hình

@@ -1,6 +1,7 @@
 package tests;
 
 import com.google.gson.Gson;
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,7 +10,15 @@ import utils.config.ConfigReader;
 
 import java.io.InputStreamReader;
 import java.util.Objects;
+//keyword trong Agile/Srum
+//Epic->1 task lớn sẽ gồm nhiều feature (task) nhỏ
+//1 feature sẽ có nhiều story(user story)
+//1 feature sẽ gồm nhiều test case
+//1 story sẽ có nhiều teat case
+//epic>feature>story>test case
 
+@Epic("Authenticator")
+@Feature("Login")
 public class LoginTest extends BaseTest{
     record LoginData(String username, String password, boolean success){}
 //    @dataProvider: Testng lấy thông tin data rồi chạy test data đó
@@ -37,6 +46,9 @@ public class LoginTest extends BaseTest{
         Thread.sleep(2000);
         Assert.assertEquals(driver.getCurrentUrl().contains("dashboard"), data.success());
     }
+
+    @Story("Login success")
+    @Severity(SeverityLevel.CRITICAL)
     @Test(description = "Test Login Success")
     public void testLoginSuccess() throws InterruptedException {
 //        tạo object LoginPage

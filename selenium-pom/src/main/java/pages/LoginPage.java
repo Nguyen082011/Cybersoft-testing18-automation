@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,10 +24,12 @@ public class LoginPage extends BasePage{
     }
 //    b1: truy cập page login
     public void open(){
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        Allure.step("Opening login page", ()->{
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 //        fix thêm cho case web hiển thị lâu
 //        đợi xuất hiện thẻ
-        wait.until(ExpectedConditions.visibilityOfElementLocated(Input_Username));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(Input_Username));
+        });
     }
 //    b2:login
 //    enterUsername, enterPassword, enterLoginBtn
@@ -34,13 +37,19 @@ public class LoginPage extends BasePage{
 //    c1: tách từng step thành từng function(ưu diểm: dễ thêm log kiểm tra, dễ sửa
 //    c2: gom các step chung 1 function
     public void login(String username, String password) throws InterruptedException {
-        WebElement usernameInput=driver.findElement(Input_Username);
-        usernameInput.sendKeys(username);
+        Allure.step("Enter username: "+username, ()->{
+            WebElement usernameInput=driver.findElement(Input_Username);
+            usernameInput.sendKeys(username);
+        });
         Thread.sleep(2000);
-        WebElement passwordInput=driver.findElement(Input_Password);
-        passwordInput.sendKeys(password);
+        Allure.step("Enter password: "+password, ()->{
+            WebElement passwordInput=driver.findElement(Input_Password);
+            passwordInput.sendKeys(password);
+        });
         Thread.sleep(2000);
-        WebElement loginButton=driver.findElement(LoginButton);
-        loginButton.click();
+        Allure.step("Click Login button", ()->{
+            WebElement loginButton=driver.findElement(LoginButton);
+            loginButton.click();
+        });
     }
 }
