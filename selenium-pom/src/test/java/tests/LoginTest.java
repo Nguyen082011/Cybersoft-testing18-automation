@@ -19,7 +19,7 @@ import java.util.Objects;
 
 @Epic("Authenticator")
 @Feature("Login")
-public class LoginTest extends BaseTest{
+public class LoginTest extends ParallelBaseTest{
     record LoginData(String username, String password, boolean success){}
 //    @dataProvider: Testng lấy thông tin data rồi chạy test data đó
 //    b1: viết function đọc data.json
@@ -40,11 +40,11 @@ public class LoginTest extends BaseTest{
 //    b2: load data vào test case
     @Test(dataProvider = "loginData")
     public void testLoginData(LoginData data)throws InterruptedException{
-        LoginPage loginPage = new LoginPage(driver,wait);
+        LoginPage loginPage = new LoginPage(getDriver(),getWait());
         loginPage.open();
         loginPage.login(data.username(), data.password());
         Thread.sleep(2000);
-        Assert.assertEquals(driver.getCurrentUrl().contains("dashboard"), data.success());
+        Assert.assertEquals(getDriver().getCurrentUrl().contains("dashboard"), data.success());
     }
 
     @Story("Login success")
@@ -52,11 +52,11 @@ public class LoginTest extends BaseTest{
     @Test(description = "Test Login Success")
     public void testLoginSuccess() throws InterruptedException {
 //        tạo object LoginPage
-        LoginPage loginPage = new LoginPage(driver,wait);
+        LoginPage loginPage = new LoginPage(getDriver(),getWait());
         loginPage.open();
         loginPage.login(ConfigReader.get("username"),ConfigReader.get("password"));
 //        so sánh expected với actual
-        String currentURL = driver.getCurrentUrl();
+        String currentURL = getDriver().getCurrentUrl();
         Assert.assertTrue(currentURL.contains("dashboard"));
     }
 }

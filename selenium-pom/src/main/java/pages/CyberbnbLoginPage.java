@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Demo5LoginPage extends BasePage{
+public class CyberbnbLoginPage extends BasePage{
     private static final By UserIcon=By.xpath("//img[@class='h-10']");
     private static final By LoginIcon =By.xpath("(//button[text()='Đăng nhập'])[1]");
     private static final By EmailInput=By.id("email");
@@ -14,7 +14,7 @@ public class Demo5LoginPage extends BasePage{
     private static final By LoginButton=By.xpath("//button[@type='submit' and text() ='Đăng nhập']");
     private static final By SuccessToast=By.xpath("//div[@class='ant-message-notice-content']");
 
-    public Demo5LoginPage(WebDriver driver, WebDriverWait wait){
+    public CyberbnbLoginPage(WebDriver driver, WebDriverWait wait){
         super(driver, wait);
     }
 
